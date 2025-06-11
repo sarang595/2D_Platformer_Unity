@@ -4,13 +4,15 @@ using UnityEngine.UIElements;
 public class PlayerControl : MonoBehaviour
 {
     public Animator animator;
-    private float speed;
+    private float horizontal;
+    [SerializeField] float speed;
     private bool isJump;
-    private float jump;
+    private float vertical;
     private bool crouch;
+    Rigidbody2D rb;
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
    
@@ -23,36 +25,43 @@ public class PlayerControl : MonoBehaviour
     }
     public void PlayerInput()
     {
-        speed = Input.GetAxisRaw("Horizontal");
-        jump = Input.GetAxisRaw("Vertical");
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
         crouch = Input.GetKey(KeyCode.LeftControl);
     }
+    public void PlayerMovementAnim() => animator.SetFloat("Speed", Mathf.Abs(horizontal));
     public void PlayerMovement()
     {
-        animator.SetFloat("Speed", Mathf.Abs(speed));
-        Playerflip();
-    }
-    public void PlayerJump()
-    {
-        isJump = jump > 0;
-        animator.SetBool("Jump",isJump);
-    }
-    public void PlayerCrouch()
-    {
-        animator.SetBool("Crouch", crouch);
+       Vector3 position = transform.position;
+       position.x = position.x+horizontal * speed*Time.deltaTime;
+       transform.position =position;
+       PlayerMovementAnim();
+       Playerflip();
     }
     public void Playerflip()
     {
         Vector3 scale = transform.localScale;
-            if (speed < 0)
-            {
-                scale.x = -1f * Mathf.Abs(scale.x);
-            }
-            else if (speed > 0)
-            {
-                scale.x = Mathf.Abs(scale.x);
-            }
-            transform.localScale = scale;
+        if (horizontal < 0)
+        {
+            scale.x = -1f * Mathf.Abs(scale.x);
         }
+        else if (horizontal > 0)
+        {
+            scale.x = Mathf.Abs(scale.x);
+        }
+        transform.localScale = scale;
+    }
+    public void PlayerJump()
+    {
+        isJump = vertical > 0;
+        animator.SetBool("Jump",isJump);
+     
+    }
+    public void PlayerCrouch()
+    {
+        animator.SetBool("Crouch", crouch);
+       
+    }
+   
     
 }
