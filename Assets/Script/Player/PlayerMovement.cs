@@ -25,23 +25,25 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerMove()
     {
+        bool IsCrouched = !PlayerInput.Crouch();
         Vector3 position = transform.position;
-        if (!PlayerInput.Crouch())
+        if (IsCrouched)
         {
-            position.x = position.x + PlayerInput.Horizontal() * speed * Time.deltaTime;
-            transform.position = position;
+            rb.linearVelocity = new Vector2(PlayerInput.Horizontal() * speed, rb.linearVelocity.y);
             PlayerAnimation.PlayerMovementAnim();
         }
-       Playerflip();
+       PlayerFlip();
     }
-    public void Playerflip()
+    public void PlayerFlip()
     {
+        bool MoveRight = (PlayerInput.Horizontal() < 0);
+        bool MoveLeft = (PlayerInput.Horizontal() > 0);
         Vector3 scale = transform.localScale;
-        if (PlayerInput.Horizontal() < 0)
+        if (MoveRight)
         {
             scale.x = -1f * Mathf.Abs(scale.x);
         }
-        else if (PlayerInput.Horizontal() > 0)
+        else if (MoveLeft)
         {
             scale.x = Mathf.Abs(scale.x);
         }
@@ -49,8 +51,10 @@ public class PlayerMovement : MonoBehaviour
     }
     public void PlayerJump()
     {
+        bool CanJump = PlayerInput.Vertical() > 0 && !hasJumped && jumpCount < maxJumps && !PlayerInput.Crouch();
+        bool ResetJump = PlayerInput.Vertical() <= 0;
         // Apply force only once when space is first pressed AND jumps are available jump wont work in crouch
-        if (PlayerInput.Vertical() > 0 && !hasJumped && jumpCount < maxJumps && !PlayerInput.Crouch())
+        if (CanJump)
         {
             float currentJumpForce;
             if (jumpCount == 0)
@@ -62,13 +66,13 @@ public class PlayerMovement : MonoBehaviour
                 currentJumpForce = secondJumpForce; // Second jump uses different force
             }
 
-            rb.AddForce(new Vector2(0, currentJumpForce), ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up* currentJumpForce, ForceMode2D.Impulse);
             hasJumped = true;
             jumpCount++; // Increment jump counter
         }
 
         // Reset jump flag when space key is released
-        if (PlayerInput.Vertical() <= 0)
+        if (ResetJump)
         {
             hasJumped = false;
         }
