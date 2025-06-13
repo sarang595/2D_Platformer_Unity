@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     public void PlayerMove()
     {
         bool IsCrouched = !PlayerInput.Crouch();
-        Vector3 position = transform.position;
         if (IsCrouched)
         {
             rb.linearVelocity = new Vector2(PlayerInput.Horizontal() * speed, rb.linearVelocity.y);
