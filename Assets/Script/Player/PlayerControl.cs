@@ -1,9 +1,9 @@
 using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
-    public PlayerAnimation PlayerAnimation;
-    public PlayerInput PlayerInput;
-    public PlayerMovement PlayerMovement;
+    [SerializeField] private PlayerAnimation PlayerAnimation;
+    [SerializeField] private PlayerInput PlayerInput;
+    [SerializeField] private PlayerMovement PlayerMovement;
    void Update()
     {
         PlayerInput.Readinput();

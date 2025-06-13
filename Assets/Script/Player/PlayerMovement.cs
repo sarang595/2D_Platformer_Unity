@@ -3,10 +3,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    public PlayerControl PlayerControl;
-    public PlayerAnimation PlayerAnimation;
-    public PlayerInput PlayerInput;
-    [SerializeField] public float speed; // Movement Speed
+    [SerializeField] private PlayerControl PlayerControl;
+    [SerializeField] private PlayerAnimation PlayerAnimation;
+    [SerializeField] private PlayerInput PlayerInput;
+    [SerializeField] float speed; // Movement Speed
     [SerializeField] float JumpForce;
     [SerializeField] float secondJumpForce; // Different force for second jump
     private bool hasJumped = false; // Track if jump has been executed

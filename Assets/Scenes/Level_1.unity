@@ -265,9 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerControl: {fileID: 683098478}
-  horizontal: 0
-  vertical: 0
-  crouch: 0
 --- !u!114 &683098486
 MonoBehaviour:
   m_ObjectHideFlags: 0
