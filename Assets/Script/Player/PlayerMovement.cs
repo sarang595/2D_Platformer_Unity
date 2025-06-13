@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public void PlayerMove()
     {
         bool IsCrouched = !PlayerInput.Crouch();
-        if (IsCrouched)
+       if (IsCrouched)
         {
             rb.linearVelocity = new Vector2(PlayerInput.Horizontal() * speed, rb.linearVelocity.y);
             PlayerAnimation.PlayerMovementAnim();
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Check if there's ground within the specified radius
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayerMask);
-
+       
         // Reset jump count when grounded
         if (isGrounded)
         {

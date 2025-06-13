@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 3608544085881522107}
   - component: {fileID: 256577407472105967}
   - component: {fileID: 2371199634368930200}
+  - component: {fileID: 6570833198032340895}
+  - component: {fileID: 1230344728656266227}
+  - component: {fileID: 5724681276848878084}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -199,7 +202,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32062f40629cb034580c1a55198efbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerAnimation: {fileID: 6570833198032340895}
+  PlayerInput: {fileID: 1230344728656266227}
+  PlayerMovement: {fileID: 5724681276848878084}
+--- !u!114 &6570833198032340895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6836213467527042545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a02bf5123ff7bc458da07724aac9a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   animator: {fileID: 6227676359377043414}
+  PlayerControl: {fileID: 2371199634368930200}
+  PlayerInput: {fileID: 1230344728656266227}
+  PlayerMovement: {fileID: 5724681276848878084}
+--- !u!114 &1230344728656266227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6836213467527042545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb79dfe61891374cacb346419bd38c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerControl: {fileID: 2371199634368930200}
+--- !u!114 &5724681276848878084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6836213467527042545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f6120e03a8cc8240be43aeff8db47cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerControl: {fileID: 2371199634368930200}
+  PlayerAnimation: {fileID: 6570833198032340895}
+  PlayerInput: {fileID: 1230344728656266227}
   speed: 5
   JumpForce: 3
   secondJumpForce: 2
@@ -207,7 +256,7 @@ MonoBehaviour:
   groundCheckRadius: 0.2
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
 --- !u!1 &7293202232508954882
 GameObject:
   m_ObjectHideFlags: 0

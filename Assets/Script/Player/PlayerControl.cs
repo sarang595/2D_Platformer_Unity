@@ -7,12 +7,13 @@ public class PlayerControl : MonoBehaviour
    void Update()
     {
         PlayerInput.Readinput();
-        PlayerMovement. CheckGrounded();
+        
         PlayerAnimation.PlayerJumpAnim();
         PlayerAnimation.PlayerCrouch();
     }
     void FixedUpdate()
     {
+        PlayerMovement.CheckGrounded();
         PlayerMovement.PlayerMove();
         PlayerMovement.PlayerJump();
     }
