@@ -8,10 +8,23 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private PlayerMovement PlayerMovement;
     private bool isJump;
     public void PlayerMovementAnim() => animator.SetFloat("Speed", Mathf.Abs(PlayerInput.Horizontal()));
-    public void PlayerCrouch() => animator.SetBool("Crouch", PlayerInput.Crouch());
+    public void PlayerCrouch()
+    {
+        bool Playergrounded = PlayerMovement.IsGrounded();
+        if (Playergrounded)
+        {
+            animator.SetBool("Crouch", PlayerInput.Crouch());
+        }
+    }
     public void PlayerJumpAnim()
     {
-        isJump = PlayerInput.Vertical() > 0;
-        animator.SetBool("Jump", isJump);
+       
+
+        bool isInAir = !PlayerMovement.IsGrounded();
+        float verticalVelocity = PlayerMovement.GetVerticalVelocity();
+
+        animator.SetBool("Jump", isInAir);
+        animator.SetBool("JumpUp", isInAir && verticalVelocity > 0.1f);
+        animator.SetBool("JumpDown", isInAir && verticalVelocity < -0.1f);
     }   
 }

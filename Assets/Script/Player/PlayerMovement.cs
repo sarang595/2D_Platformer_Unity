@@ -85,8 +85,12 @@ public class PlayerMovement : MonoBehaviour
         // Reset jump count when grounded
         if (isGrounded)
         {
+           
             jumpCount = 0;
         }
     }
+    public bool IsGrounded() => isGrounded;
+
+    public float GetVerticalVelocity() => rb.linearVelocity.y;
 
 }
