@@ -18,11 +18,8 @@ public class PlayerAnimation : MonoBehaviour
     }
     public void PlayerJumpAnim()
     {
-       
-
         bool isInAir = !PlayerMovement.IsGrounded();
         float verticalVelocity = PlayerMovement.GetVerticalVelocity();
-
         animator.SetBool("Jump", isInAir);
         animator.SetBool("JumpUp", isInAir && verticalVelocity > 0.1f);
         animator.SetBool("JumpDown", isInAir && verticalVelocity < -0.1f);

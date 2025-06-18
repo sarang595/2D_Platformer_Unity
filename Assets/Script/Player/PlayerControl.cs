@@ -4,10 +4,10 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private PlayerAnimation PlayerAnimation;
     [SerializeField] private PlayerInput PlayerInput;
     [SerializeField] private PlayerMovement PlayerMovement;
-   void Update()
+    [SerializeField] private ScoreControl scoreControl;
+    void Update()
     {
         PlayerInput.Readinput();
-        
         PlayerAnimation.PlayerJumpAnim();
         PlayerAnimation.PlayerCrouch();
     }
@@ -16,6 +16,10 @@ public class PlayerControl : MonoBehaviour
         PlayerMovement.CheckGrounded();
         PlayerMovement.PlayerMove();
         PlayerMovement.PlayerJump();
+    }
+    public void PickupKey()
+    {
+        scoreControl.IncreaseScore(10);
     }
 
 }

@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 5724681276848878084}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,6 +205,7 @@ MonoBehaviour:
   PlayerAnimation: {fileID: 6570833198032340895}
   PlayerInput: {fileID: 1230344728656266227}
   PlayerMovement: {fileID: 5724681276848878084}
+  scoreControl: {fileID: 0}
 --- !u!114 &6570833198032340895
 MonoBehaviour:
   m_ObjectHideFlags: 0
