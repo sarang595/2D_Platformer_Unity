@@ -5,7 +5,8 @@ public class KeyContol : MonoBehaviour
     public PlayerControl PlayerControl;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        bool PlayerHitKey = collision.gameObject.CompareTag("Player");
+        if (PlayerHitKey)
         {
             PlayerControl.PickupKey();
             Destroy(gameObject);

@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerControl PlayerControl;
     [SerializeField] private PlayerAnimation PlayerAnimation;
     [SerializeField] private PlayerInput PlayerInput;
+    [SerializeField] private EnemyControl EnemyControl;
     [SerializeField] float speed; // Movement Speed
     [SerializeField] float JumpForce;
     [SerializeField] float secondJumpForce; // Different force for second jump
@@ -25,15 +26,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerMove()
     {
-        bool IsCrouched = !PlayerInput.Crouch();
-       if (IsCrouched)
+       bool CanMove = !PlayerInput.Crouch() && PlayerControl.isAlive;
+       if (CanMove)
         {
             rb.linearVelocity = new Vector2(PlayerInput.Horizontal() * speed, rb.linearVelocity.y);
             PlayerAnimation.PlayerMovementAnim();
+            PlayerFlip();
         }
-       PlayerFlip();
-    }
-    public void PlayerFlip()
+    
+     }
+   public void PlayerFlip()
     {
         bool MoveRight = (PlayerInput.Horizontal() < 0);
         bool MoveLeft = (PlayerInput.Horizontal() > 0);
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void PlayerJump()
     {
-        bool CanJump = PlayerInput.Vertical() > 0 && !hasJumped && jumpCount < maxJumps && !PlayerInput.Crouch();
+        bool CanJump = PlayerInput.Vertical() > 0 && !hasJumped && jumpCount < maxJumps && !PlayerInput.Crouch() && PlayerControl.isAlive;
         bool ResetJump = PlayerInput.Vertical() <= 0;
         // Apply force only once when space is first pressed AND jumps are available jump wont work in crouch
         if (CanJump)

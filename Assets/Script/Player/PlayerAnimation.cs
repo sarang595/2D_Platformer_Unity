@@ -10,8 +10,8 @@ public class PlayerAnimation : MonoBehaviour
     public void PlayerMovementAnim() => animator.SetFloat("Speed", Mathf.Abs(PlayerInput.Horizontal()));
     public void PlayerCrouch()
     {
-        bool Playergrounded = PlayerMovement.IsGrounded();
-        if (Playergrounded)
+        bool CanCrouch = PlayerMovement.IsGrounded() && PlayerControl.isAlive;
+        if (CanCrouch)
         {
             animator.SetBool("Crouch", PlayerInput.Crouch());
         }
@@ -24,4 +24,17 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("JumpUp", isInAir && verticalVelocity > 0.1f);
         animator.SetBool("JumpDown", isInAir && verticalVelocity < -0.1f);
     }   
+    public void PlayerAttackAnim()
+    {
+        bool CanAttack = !PlayerInput.Crouch() && PlayerControl.isAlive;
+        if (CanAttack)
+        {
+            animator.SetBool("IsAttack", PlayerInput.Attack());
+           
+        }
+    }
+   public void PlayerDieAnim()
+    {
+        animator.SetBool("IsDie",true);
+    }
 }
