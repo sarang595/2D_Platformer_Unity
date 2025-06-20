@@ -6,6 +6,7 @@ public class EnemyControl : MonoBehaviour
     public Animator EnemyAnimation;
     [SerializeField] private PlayerAnimation PlayerAnimation;
     [SerializeField] private PlayerControl playerControl;
+    [SerializeField] private ScoreControl scoreControl;
     Vector3 PosA;
     Vector3 PosB;
     Vector3 TargetPos;
@@ -14,43 +15,68 @@ public class EnemyControl : MonoBehaviour
     private bool facingRight = true;
     private bool CanPatrol = true;
     private float originalScaleX; // Store the original scale
+    private float cooldownDamage = 0.5f;
+    private float lastDamge = -Mathf.Infinity;
+    bool isPlayerhitEnemy = false;
 
     private bool IsPlayer(GameObject obj) => obj.CompareTag("Player");
 
     public void Start()
     {
-      
-
         EnemyPos();
     }
 
     public void Update()
     {
+        PlayerAttacked();
         CheckEnemyAnim();
         CheckPatroll();
     }
+   
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (IsPlayer(collision.gameObject))
         {
-            CanPatrol = false;
-            EnemyAnimation.SetBool("IsPlayerHit", true);
-            StartCoroutine(DelayPlayerDeath());
+            isPlayerhitEnemy = true;
+           
         }
     }
 
-    private IEnumerator DelayPlayerDeath()
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        yield return new WaitForSeconds(0.5f);
-        playerControl.Die();
-        PlayerAnimation.PlayerDieAnim();
+        if (IsPlayer(collision.gameObject))
+        {
+            isPlayerhitEnemy = true;
+           
+        }
     }
+    void PlayerAttacked()
+    {
+        if (isPlayerhitEnemy)
+        {
+            DamagePlayer();
+        }
+    }
+    private void DamagePlayer()
+    {
+        if (Time.time - lastDamge >= cooldownDamage)
+        {
+            CanPatrol = false;
+            EnemyAnimation.SetBool("IsPlayerHit", true);
+            playerControl.TakeDamage(10);
+            lastDamge = Time.time;
+        }
+          
+    }
+
+   
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (IsPlayer(collision.gameObject))
         {
+            isPlayerhitEnemy = false;
             EnemyAnimation.SetBool("IsPlayerHit", false);
             if (playerControl.isAlive)
             {
@@ -59,7 +85,7 @@ public class EnemyControl : MonoBehaviour
         }
     }
 
-    public void CheckEnemyAnim()
+    private void CheckEnemyAnim()
     {
         if (!playerControl.isAlive)
         {
@@ -68,7 +94,7 @@ public class EnemyControl : MonoBehaviour
         }
     }
 
-    public void EnemyPos()
+    private void EnemyPos()
     {
         // Store the original scale at start (handles negative values in inspector)
         originalScaleX = Mathf.Abs(transform.localScale.x);
@@ -90,7 +116,7 @@ public class EnemyControl : MonoBehaviour
         TargetPos = PosB;
     }
 
-    public void CheckPatroll()
+    private void CheckPatroll()
     {
         if (CanPatrol)
         {
@@ -98,7 +124,7 @@ public class EnemyControl : MonoBehaviour
         }
     }
 
-    public void EnemyPatroll()
+    private void EnemyPatroll()
     {
         transform.position = Vector3.MoveTowards(transform.position, TargetPos, PatrollSpeed * Time.deltaTime);
         if (transform.position == TargetPos)

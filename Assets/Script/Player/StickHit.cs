@@ -15,7 +15,7 @@ public class StickHit : MonoBehaviour
     }
 
    
-    public void StickAttack()
+    public void PlayerAttack()
     {
         bool CanAttack = PlayerInput.Attack() && !PlayerInput.Crouch() && !isAttacking && PlayerControl.isAlive;
 
@@ -29,7 +29,7 @@ public class StickHit : MonoBehaviour
     {
         isAttacking = true;
 
-        yield return new WaitForSeconds(delay); // Wait 2 seconds
+        yield return new WaitForSeconds(delay); // Wait 0.2 seconds
 
         stickCollider.enabled = true;
        

@@ -37,4 +37,5 @@ public class PlayerAnimation : MonoBehaviour
     {
         animator.SetBool("IsDie",true);
     }
+   
 }

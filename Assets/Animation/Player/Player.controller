@@ -85,7 +85,7 @@ AnimatorStateMachine:
     m_Position: {x: 1090, y: 590, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1471802773583732314}
-    m_Position: {x: 1290, y: 440, z: 0}
+    m_Position: {x: 1330, y: 730, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 7761175243520383720}
@@ -417,6 +417,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   - m_Name: IsDie
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Ishurt
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0

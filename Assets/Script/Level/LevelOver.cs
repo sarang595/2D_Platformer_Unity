@@ -10,6 +10,7 @@ public class LevelOver : MonoBehaviour
         bool Levelup = other.gameObject.CompareTag("Player") && NextScene < SceneManager.sceneCountInBuildSettings;
         if (Levelup)
         {
+
             SceneManager.LoadScene(NextScene);
         }
         else
