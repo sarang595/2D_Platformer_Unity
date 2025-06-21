@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private ScoreControl scoreControl;
     [SerializeField] private StickHit stickhit;
     [SerializeField] private LevelLost levellost;
+    [SerializeField] private GameOverDisplay gameoverdisplay;
     int KeypickScore = 10;
     public  int playerhealth = 100;
     public bool isAlive = true;
@@ -59,12 +60,13 @@ public class PlayerControl : MonoBehaviour
                
             isAlive = false;
             PlayerAnimation.PlayerDieAnim();
-            Invoke(nameof(CallLevel), 1.5f);
+            Invoke(nameof(callRestartScreen), 1.5f);
               
     }
-    private void CallLevel()
+    private void callRestartScreen()
     {
-        levellost.ReloadScene();
+        gameoverdisplay.displayegameover();
+       // levellost.ReloadScene();
     }
    
 }

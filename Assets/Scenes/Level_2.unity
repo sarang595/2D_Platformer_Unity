@@ -314,10 +314,22 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1353036234}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1353036235}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f3062537ca9e0c4fa8fd820c76b2084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &980184460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3043841959870602722, guid: 4e9c91d5801a5164393564fac1eb3290,
+    type: 3}
+  m_PrefabInstance: {fileID: 1353036234}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f9335f24440b8438838418aeda55ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1073668791
@@ -338,6 +350,11 @@ PrefabInstance:
       propertyPath: scoreControl
       value: 
       objectReference: {fileID: 391834755}
+    - target: {fileID: 2371199634368930200, guid: c5a87d071de396043ae97e97066afdde,
+        type: 3}
+      propertyPath: gameoverdisplay
+      value: 
+      objectReference: {fileID: 1355689469}
     - target: {fileID: 5724681276848878084, guid: c5a87d071de396043ae97e97066afdde,
         type: 3}
       propertyPath: EnemyControl
@@ -614,11 +631,75 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8001020702939650402, guid: 4e9c91d5801a5164393564fac1eb3290,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001020702939650402, guid: 4e9c91d5801a5164393564fac1eb3290,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1903975780}
+    - target: {fileID: 8001020702939650402, guid: 4e9c91d5801a5164393564fac1eb3290,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001020702939650402, guid: 4e9c91d5801a5164393564fac1eb3290,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelLost, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001020702939650402, guid: 4e9c91d5801a5164393564fac1eb3290,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8744071915812989409, guid: 4e9c91d5801a5164393564fac1eb3290,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3073400642989610435, guid: 4e9c91d5801a5164393564fac1eb3290,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1353036236}
   m_SourcePrefab: {fileID: 100100000, guid: 4e9c91d5801a5164393564fac1eb3290, type: 3}
+--- !u!1 &1353036235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3073400642989610435, guid: 4e9c91d5801a5164393564fac1eb3290,
+    type: 3}
+  m_PrefabInstance: {fileID: 1353036234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1353036236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353036235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd696cd533873fa468b30fd6b317a7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1355689469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5730413527892288270, guid: 4e9c91d5801a5164393564fac1eb3290,
+    type: 3}
+  m_PrefabInstance: {fileID: 1353036234}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df6d85c1ee509345945a954c28f3ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1394322155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -627,6 +708,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3055745074893438510, guid: 3f613227d4838f64e8dda575ac8b8440,
+        type: 3}
+      propertyPath: levelchangescreen
+      value: 
+      objectReference: {fileID: 980184460}
     - target: {fileID: 3350812269726510044, guid: 3f613227d4838f64e8dda575ac8b8440,
         type: 3}
       propertyPath: m_LocalPosition.x

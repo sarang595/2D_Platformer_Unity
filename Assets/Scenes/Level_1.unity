@@ -200,6 +200,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1367952964}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &189717872 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5730413527892288270, guid: 4e9c91d5801a5164393564fac1eb3290,
+    type: 3}
+  m_PrefabInstance: {fileID: 1727752073723754003}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2df6d85c1ee509345945a954c28f3ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &489443512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -588,6 +600,18 @@ Transform:
   - {fileID: 528145619}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1241051768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3043841959870602722, guid: 4e9c91d5801a5164393564fac1eb3290,
+    type: 3}
+  m_PrefabInstance: {fileID: 1727752073723754003}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f9335f24440b8438838418aeda55ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1367952964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1172,6 +1196,11 @@ PrefabInstance:
       propertyPath: scoreControl
       value: 
       objectReference: {fileID: 1154315407}
+    - target: {fileID: 2371199634368930200, guid: c5a87d071de396043ae97e97066afdde,
+        type: 3}
+      propertyPath: gameoverdisplay
+      value: 
+      objectReference: {fileID: 189717872}
     - target: {fileID: 5724681276848878084, guid: c5a87d071de396043ae97e97066afdde,
         type: 3}
       propertyPath: EnemyControl
@@ -1181,6 +1210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836213467527042545, guid: c5a87d071de396043ae97e97066afdde,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6896615702814169034, guid: c5a87d071de396043ae97e97066afdde,
         type: 3}
@@ -1250,6 +1284,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1234985275}
     m_Modifications:
+    - target: {fileID: 3055745074893438510, guid: 3f613227d4838f64e8dda575ac8b8440,
+        type: 3}
+      propertyPath: levelchangescreen
+      value: 
+      objectReference: {fileID: 1241051768}
     - target: {fileID: 3350812269726510044, guid: 3f613227d4838f64e8dda575ac8b8440,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1433,6 +1472,11 @@ PrefabInstance:
       propertyPath: playerControl
       value: 
       objectReference: {fileID: 2102600647}
+    - target: {fileID: 8001020702939650402, guid: 4e9c91d5801a5164393564fac1eb3290,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1040739849}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
