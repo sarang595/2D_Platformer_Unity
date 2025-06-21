@@ -7,10 +7,11 @@ public class StickHit : MonoBehaviour
     public PlayerControl PlayerControl;
     private Collider2D stickCollider;
     private bool isAttacking = false;
-
+    [SerializeField] EnemyControl enemyControl;
     private void Awake()
     {
         stickCollider = GetComponent<Collider2D>();
+     
         stickCollider.enabled = false;
     }
 
@@ -46,8 +47,13 @@ public class StickHit : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-           
-            Destroy(other.gameObject);
+            enemyControl = other.GetComponent<EnemyControl>(); // Gets component of enemy prefabs
+            bool EnemyDied = enemyControl != null && enemyControl.EnemyAlive;
+            if (EnemyDied)
+            {
+                enemyControl.EnemyDieAnim();
+            }
+            
         }
     }
 }

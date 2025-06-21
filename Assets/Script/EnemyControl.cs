@@ -18,6 +18,8 @@ public class EnemyControl : MonoBehaviour
     private float cooldownDamage = 0.5f;
     private float lastDamge = -Mathf.Infinity;
     bool isPlayerhitEnemy = false;
+    public bool EnemyAlive = true;
+    [SerializeField] private int EnemyPower = 5;
 
     private bool IsPlayer(GameObject obj) => obj.CompareTag("Player");
 
@@ -32,8 +34,20 @@ public class EnemyControl : MonoBehaviour
         CheckEnemyAnim();
         CheckPatroll();
     }
-   
-
+   public void EnemyDieAnim()
+    {
+        EnemyAlive = false;
+        if(!EnemyAlive)
+        {
+            EnemyAnimation.SetBool("isDeath", true);
+            StartCoroutine(DestoryEnemy());
+        }
+    }
+    private IEnumerator DestoryEnemy()
+    {
+        yield return new WaitForSeconds(0.3f);
+        Destroy(gameObject);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (IsPlayer(collision.gameObject))
@@ -64,7 +78,7 @@ public class EnemyControl : MonoBehaviour
         {
             CanPatrol = false;
             EnemyAnimation.SetBool("IsPlayerHit", true);
-            playerControl.TakeDamage(10);
+            playerControl.TakeDamage(EnemyPower);
             lastDamge = Time.time;
         }
           
@@ -157,4 +171,5 @@ public class EnemyControl : MonoBehaviour
         }
         transform.localScale = scale;
     }
+    
 }

@@ -7,7 +7,7 @@ public class ScoreControl : MonoBehaviour
 {
     [SerializeField] private PlayerControl playerControl;
     public TextMeshProUGUI ScoreText;
-    public TextMeshProUGUI PlayerhealthText;
+   // public TextMeshProUGUI PlayerhealthText;
     private int Score;
    
    
@@ -24,17 +24,17 @@ public class ScoreControl : MonoBehaviour
         Score = 0;
         RefreshUI();
     }
-   public void UpdateHealth(int health)
-    {
-        PlayerhealthText.text = "Health: " + health;
-    }
+   //public void UpdateHealth(int health)
+   // {
+   //     PlayerhealthText.text = "Health: " + health;
+   // }
 
     public void RefreshUI()
     {
         
         
         ScoreText.text = "Score: " + Score;
-        UpdateHealth(playerControl.PlayerHealth());
+        //UpdateHealth(playerControl.PlayerHealth());
            
        
     }

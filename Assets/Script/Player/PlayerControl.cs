@@ -8,7 +8,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private StickHit stickhit;
     [SerializeField] private LevelLost levellost;
     int KeypickScore = 10;
-    int playerhealth = 100;
+    public  int playerhealth = 100;
     public bool isAlive = true;
 
      void Start()
@@ -31,7 +31,11 @@ public class PlayerControl : MonoBehaviour
         PlayerMovement.PlayerJump();
     }
     public void PickupKey() => scoreControl.IncreaseScore(KeypickScore);
-    public int PlayerHealth() => playerhealth;
+    public int PlayerHealth()
+    {
+
+        return playerhealth;
+    } 
     public void TakeDamage(int Damage)
     {
         if(!isAlive)
@@ -43,7 +47,7 @@ public class PlayerControl : MonoBehaviour
         if (playerhealth <= 0)
         {
             playerhealth = 0;
-            scoreControl.RefreshUI();
+            //scoreControl.RefreshUI();
             Die();
             return;
         }

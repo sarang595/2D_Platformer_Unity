@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerInput: {fileID: 1230344728656266227}
   PlayerControl: {fileID: 2371199634368930200}
+  enemyControl: {fileID: 0}
 --- !u!1 &6836213467527042545
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,8 +132,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8560610907485773155}
-  - {fileID: 503492771747720743}
   - {fileID: 2843794977119933848}
+  - {fileID: 503492771747720743}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8356115491041029654
@@ -302,6 +303,8 @@ MonoBehaviour:
   PlayerMovement: {fileID: 5724681276848878084}
   scoreControl: {fileID: 0}
   stickhit: {fileID: 6896615702814169034}
+  levellost: {fileID: 0}
+  playerhealth: 100
   isAlive: 1
 --- !u!114 &6570833198032340895
 MonoBehaviour:
@@ -348,9 +351,9 @@ MonoBehaviour:
   PlayerAnimation: {fileID: 6570833198032340895}
   PlayerInput: {fileID: 1230344728656266227}
   EnemyControl: {fileID: 0}
-  speed: 10
+  speed: 12
   JumpForce: 10
-  secondJumpForce: 2
+  secondJumpForce: 8
   groundCheck: {fileID: 8560610907485773155}
   groundCheckRadius: 0.2
   groundLayerMask:
