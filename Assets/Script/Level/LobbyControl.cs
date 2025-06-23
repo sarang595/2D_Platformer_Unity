@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class LobbyControl : MonoBehaviour
 {
     int NextScene;
+
     public void LoadNextLevel()
     {
         int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -12,6 +13,7 @@ public class LobbyControl : MonoBehaviour
     }
     public void Quit()
     {
+        PlayerPrefs.DeleteAll();
         Application.Quit();
     }
     public void Lobby()

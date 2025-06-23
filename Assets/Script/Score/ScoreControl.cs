@@ -24,17 +24,14 @@ public class ScoreControl : MonoBehaviour
         Score = 0;
         RefreshUI();
     }
-   //public void UpdateHealth(int health)
-   // {
-   //     PlayerhealthText.text = "Health: " + health;
-   // }
+   
 
     public void RefreshUI()
     {
         
         
         ScoreText.text = "Score: " + Score;
-        //UpdateHealth(playerControl.PlayerHealth());
+       
            
        
     }

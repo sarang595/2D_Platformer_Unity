@@ -7,8 +7,16 @@ public class LevelOver : MonoBehaviour
     int NextScene;
     void LoadNextLevel()
     {
+       
         int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        NextScene = CurrentSceneIndex + 1;
+        int NextScene = CurrentSceneIndex + 1;
+
+        string fullPath = SceneUtility.GetScenePathByBuildIndex(NextScene);
+        string nextSceneName = System.IO.Path.GetFileNameWithoutExtension(fullPath);
+
+        Debug.Log("Next Scene Name: " + nextSceneName);
+
+        LevelManager.Instance.setlevelstatus(nextSceneName, levelstatus.unlocked);
         SceneManager.LoadScene(NextScene);
     }
     private void OnTriggerEnter2D(Collider2D other)
