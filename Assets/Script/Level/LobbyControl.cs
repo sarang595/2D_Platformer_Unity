@@ -13,11 +13,13 @@ public class LobbyControl : MonoBehaviour
     }
     public void Quit()
     {
+        SoundManager.Instance.Play(SoundManager.MusicType.ButtonClick);
         PlayerPrefs.DeleteAll();
         Application.Quit();
     }
     public void Lobby()
     {
+        SoundManager.Instance.Play(SoundManager.MusicType.ButtonClick);
         SceneManager.LoadScene(0);
     }
 }

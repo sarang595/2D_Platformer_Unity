@@ -304,6 +304,7 @@ MonoBehaviour:
   scoreControl: {fileID: 0}
   stickhit: {fileID: 6896615702814169034}
   levellost: {fileID: 0}
+  gameoverdisplay: {fileID: 0}
   playerhealth: 100
   isAlive: 1
 --- !u!114 &6570833198032340895
@@ -400,7 +401,6 @@ GameObject:
   m_Component:
   - component: {fileID: 503492771747720743}
   - component: {fileID: 8471575224996816572}
-  - component: {fileID: 383759072643267212}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -474,11 +474,3 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &383759072643267212
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8638920913803850452}
-  m_Enabled: 1

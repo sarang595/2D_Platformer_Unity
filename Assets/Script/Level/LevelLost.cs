@@ -16,6 +16,7 @@ public class LevelLost : MonoBehaviour
     public void ReloadScene()
     {
         int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SoundManager.Instance.Play(SoundManager.MusicType.ButtonClick);
         SceneManager.LoadScene(CurrentSceneIndex);
     }
 }
